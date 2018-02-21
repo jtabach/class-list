@@ -15,19 +15,29 @@ const ClassListItem = ({ item }) => {
     title
   } = item;
 
+  const imageStyle = {
+    backgroundImage: `url(${img_url})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center center"
+  };
+
   return (
-    <Link to={`class/${item.id}`}>
-      <li>
-        <img src={img_url} alt=""/>
-        <h4>{title}</h4>
-        <p>{instructor}</p>
-        <p>{start_time} - {end_time}</p>
-        <div>
-          {price}
+    <Link to={`class/${item.id}`} styleName="link">
+      <li styleName="list-item">
+        <div styleName="image" style={imageStyle}></div>
+        <div styleName="content">
+          <div styleName="inner">
+            <h4 styleName="title">{title}</h4>
+            <p styleName="instructor">{instructor}</p>
+            <p styleName="time">{start_time} - {end_time}</p>
+          </div>
+        </div>
+        <div styleName="price">
+          <div styleName="inner">${price}</div>
         </div>
       </li>
     </Link>
   )
 }
 
-export default ClassListItem;
+export default CSSModules(ClassListItem, styles);

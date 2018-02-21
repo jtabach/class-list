@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import CSSModules from 'react-css-modules';
+import styles from './ClassList.scss'
 import axios from 'axios';
 
 import ClassListItem from './ClassListItem';
@@ -35,7 +37,7 @@ class ClassList extends Component {
     return (
       <div>
         <h1>List of Classes</h1>
-        <ul>
+        <ul styleName="list">
           {this.renderClasses()}
         </ul>
       </div>
@@ -43,4 +45,4 @@ class ClassList extends Component {
   }
 }
 
-export default ClassList;
+export default CSSModules(ClassList, styles);

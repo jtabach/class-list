@@ -1,3 +1,68 @@
-.test {
-  color: blue;
+// note on card styling, with more time, would use flexbox and make mobile responsive
+
+.link {
+  // remove inherited link styles
+  color: #000;
+  text-decoration: none;
+}
+
+.list-item {
+  border-radius: 6px;
+  box-shadow: 2px 2px 15px 2px #ccc;
+  margin-bottom: 20px;
+  height: 108px;
+
+  .image {
+    height: 108px;
+    width: 108px;
+    margin-right: 20px;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    float: left;
+  }
+
+  .content {
+    float: left;
+    &:before {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+    .inner {
+      .title {
+        margin: 0;
+        margin-bottom: 6px;
+      }
+      .instructor {
+        margin: 0;
+        margin-bottom: 6px;
+      }
+      .time {
+        margin: 0;
+      }
+    }
+
+  }
+  .price {
+    text-align: center;
+    float: right;
+    height: 100%;
+    width: 108px;
+    &:before {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+    .inner {
+      display: inline-block;
+      vertical-align: middle;
+      background-color: #ff625f;
+      padding: 4px 8px;
+      font-size: 24px;
+      color: white;
+      border-radius: 16px;
+    }
+  }
 }
