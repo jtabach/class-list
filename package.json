@@ -1,7 +1,7 @@
 {
-  "name": "node-react-boilerplate",
+  "name": "class-list",
   "version": "1.0.0",
-  "description": "Simple starter boilerplate for React with Node that can easily be deployed to Heroku",
+  "description": "Show all available classes and booking",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
