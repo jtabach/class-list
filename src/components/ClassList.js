@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import ClassListItem from './ClassListItem';
+
 const CLASSES_URL = 'https://zenrez-interview.herokuapp.com/classes';
 
 class ClassList extends Component {
@@ -25,12 +27,11 @@ class ClassList extends Component {
   renderClasses() {
     const { classes } = this.state;
     return classes.map(item =>
-      <h2 key={Math.random()}>Test</h2>
+      <ClassListItem key={item.id} item={item} />
     )
   }
 
   render() {
-    console.log(this.state.classes);
     return (
       <div>
         <h1>List of Classes</h1>
