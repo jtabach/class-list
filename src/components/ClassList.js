@@ -15,19 +15,18 @@ class ClassList extends Component {
   componentDidMount() {
     axios.get(CLASSES_URL)
       .then(resp => {
+        const { classes } = resp.data;
         this.setState({
-          classes: resp.data.classes
+          classes
         });
       });
   }
 
   renderClasses() {
     const { classes } = this.state;
-    {
-      return this.state.classes.map(item =>
-        <h2 key={Math.random()}>Test</h2>
-      )
-    }
+    return classes.map(item =>
+      <h2 key={Math.random()}>Test</h2>
+    )
   }
 
   render() {
