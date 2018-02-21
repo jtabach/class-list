@@ -35,7 +35,9 @@ class ClassList extends Component {
     return (
       <div>
         <h1>List of Classes</h1>
-        {this.renderClasses()}
+        <ul>
+          {this.renderClasses()}
+        </ul>
       </div>
     );
   }
