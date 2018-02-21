@@ -6,7 +6,7 @@ import axios from 'axios';
 import ClassListItem from './ClassListItem';
 import LoadingSpinner from './LoadingSpinner';
 
-const CLASSES_URL = 'https://zenrez-interview.herokuapp.com/classes';
+const GET_CLASSES_URL = 'https://zenrez-interview.herokuapp.com/classes';
 
 class ClassList extends Component {
   constructor(props) {
@@ -19,13 +19,16 @@ class ClassList extends Component {
   }
 
   componentDidMount() {
-    axios.get(CLASSES_URL)
+    axios.get(GET_CLASSES_URL)
       .then(resp => {
         const { classes } = resp.data;
         this.setState({
           classes,
           loading: false
         });
+      })
+      .catch(err => {
+        // handle error
       });
   }
 
