@@ -1,20 +1,17 @@
-# node-react-boilerplate
+# [class-list](https://pure-hamlet-87051.herokuapp.com/)
 
-Node and React boilerplate for easy deployment to Heroku
+List of Classes from simple api
 
-### Bolierplate Includes
-
-- Node/Express
-- React
-- React Router
-- CSSModules
+- See all classes
+- See a class overview
+- Book a class (bug)
 
 ### Getting Started
 
 Checkout this repo, install dependencies, then start the gulp process with the following:
 
 ```
-> git clone https://github.com/jtabach/node-react-template.git
+> git clone https://github.com/jtabach/class-list.git
 > cd react-node-template
 > npm i
 ```
@@ -25,12 +22,14 @@ In one terminal window, run:
 > npm run start
 ```
 
-In another:
+In another (optional):
 
 ```
 > npm run webpack
 ```
 
-### Deploying to Heroku
+navigate to `localhost:5000`
 
-Heroku will look for an `index.js` file by default. Follow these instructions to [deploy to Heroku](https://devcenter.heroku.com/articles/git)
+### Deployed to Heroku
+
+[See it in action](https://pure-hamlet-87051.herokuapp.com/)
