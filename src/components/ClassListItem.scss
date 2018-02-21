@@ -23,13 +23,16 @@
 
   .content {
     float: left;
+    height: 100%;
     &:before {
       content: '';
-      display: inline-block;
       height: 100%;
+      display: inline-block;
       vertical-align: middle;
     }
     .inner {
+      display: inline-block;
+      vertical-align: middle;
       .title {
         margin: 0;
         margin-bottom: 6px;
