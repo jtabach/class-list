@@ -4,6 +4,7 @@ import styles from './ClassList.scss'
 import axios from 'axios';
 
 import ClassListItem from './ClassListItem';
+import LoadingSpinner from './LoadingSpinner';
 
 const CLASSES_URL = 'https://zenrez-interview.herokuapp.com/classes';
 
@@ -37,14 +38,14 @@ class ClassList extends Component {
 
   render() {
     const { loading } = this.state;
-    
+
     return (
       <div>
         <h1>List of Classes</h1>
         {
           loading
           ?
-          <img src="https://loading.io/spinners/fidget-spinner/lg.fidget-spinner.gif" alt=""/>
+          <LoadingSpinner />
           :
           <ul styleName="list">
             {this.renderClasses()}

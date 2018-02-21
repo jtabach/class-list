@@ -4,7 +4,6 @@ import CSSModules from 'react-css-modules';
 import styles from './ClassListItem.scss';
 
 const ClassListItem = ({ item }) => {
-  console.log(item);
   const {
     end_time,
     id,
