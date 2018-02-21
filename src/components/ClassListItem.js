@@ -1,4 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import CSSModules from 'react-css-modules';
+import styles from './ClassListItem.scss';
 
 const ClassListItem = ({ item }) => {
   console.log(item);
@@ -13,15 +16,17 @@ const ClassListItem = ({ item }) => {
   } = item;
 
   return (
-    <li>
-      <img src={img_url} alt=""/>
-      <h4>{title}</h4>
-      <p>{instructor}</p>
-      <p>{start_time} - {end_time}</p>
-      <div>
-        {price}
-      </div>
-    </li>
+    <Link to={`class/${item.id}`}>
+      <li>
+        <img src={img_url} alt=""/>
+        <h4>{title}</h4>
+        <p>{instructor}</p>
+        <p>{start_time} - {end_time}</p>
+        <div>
+          {price}
+        </div>
+      </li>
+    </Link>
   )
 }
 
