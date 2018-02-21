@@ -4,14 +4,17 @@
   // remove inherited link styles
   color: #000;
   text-decoration: none;
+
+  max-width: 720px;
+  height: 108px;
+  display: block;
+  margin-bottom: 20px;
 }
 
 .list-item {
   border-radius: 6px;
   box-shadow: 2px 2px 15px 2px #ccc;
-  margin-bottom: 20px;
-  height: 108px;
-  max-width: 720px;
+  height: 100%;
 
   .image {
     height: 108px;

@@ -12,7 +12,8 @@ class ClassList extends Component {
     super(props);
 
     this.state = {
-      classes: []
+      classes: [],
+      loading: true
     };
   }
 
@@ -21,7 +22,8 @@ class ClassList extends Component {
       .then(resp => {
         const { classes } = resp.data;
         this.setState({
-          classes
+          classes,
+          loading: false
         });
       });
   }
@@ -34,12 +36,20 @@ class ClassList extends Component {
   }
 
   render() {
+    const { loading } = this.state;
+    
     return (
       <div>
         <h1>List of Classes</h1>
-        <ul styleName="list">
-          {this.renderClasses()}
-        </ul>
+        {
+          loading
+          ?
+          <img src="https://loading.io/spinners/fidget-spinner/lg.fidget-spinner.gif" alt=""/>
+          :
+          <ul styleName="list">
+            {this.renderClasses()}
+          </ul>
+        }
       </div>
     );
   }
