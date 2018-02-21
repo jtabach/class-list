@@ -4,7 +4,7 @@ import Routes from './Routes.js';
 
 const App = () => {
   return (
-    <div>
+    <div style={{ padding: "0 12px" }}>
       <BrowserRouter>
         <Routes />
       </BrowserRouter>

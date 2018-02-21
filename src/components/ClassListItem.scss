@@ -11,6 +11,7 @@
   box-shadow: 2px 2px 15px 2px #ccc;
   margin-bottom: 20px;
   height: 108px;
+  max-width: 720px;
 
   .image {
     height: 108px;
@@ -34,14 +35,17 @@
       display: inline-block;
       vertical-align: middle;
       .title {
+        text-transform: uppercase;
         margin: 0;
         margin-bottom: 6px;
       }
       .instructor {
         margin: 0;
         margin-bottom: 6px;
+        color: #777;
       }
       .time {
+        color: #999;
         margin: 0;
       }
     }
