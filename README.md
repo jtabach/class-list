@@ -12,7 +12,7 @@ Checkout this repo, install dependencies, then start the gulp process with the f
 
 ```
 > git clone https://github.com/jtabach/class-list.git
-> cd react-node-template
+> cd class-list
 > npm i
 ```
 
