@@ -3,3 +3,32 @@
   padding: 0;
   list-style-type: none;
 }
+
+.pagination-wrapper {
+  text-align: center;
+}
+
+.paginate {
+  display: inline-block;
+  list-style: none;
+  padding-left: 0;
+}
+
+.paginateItem {
+  display: inline-block;
+  height: 30px;
+  padding: 10px 16px 0;
+  border: 1px solid blue;
+  a {
+    text-decoration: none;
+  }
+}
+
+.paginateActive {
+  background: green;
+}
+
+.paginateDisabled {
+  background: grey;
+  cursor: not-allowed;
+}

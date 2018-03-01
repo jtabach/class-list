@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './ClassList.scss'
 import axios from 'axios';
+import Pagination from 'react-js-pagination';
 
 import ClassListItem from './ClassListItem';
 import LoadingSpinner from './LoadingSpinner';
+
+const classesPerPage = 3;
 
 const GET_CLASSES_URL = 'https://zenrez-interview.herokuapp.com/classes';
 
@@ -14,7 +17,10 @@ class ClassList extends Component {
 
     this.state = {
       classes: [],
-      loading: true
+      filteredClasses: [],
+      loading: true,
+      activePage: 1,
+      textValue: ''
     };
   }
 
@@ -24,6 +30,7 @@ class ClassList extends Component {
         const { classes } = resp.data;
         this.setState({
           classes,
+          filteredClasses: classes,
           loading: false
         });
       })
@@ -32,11 +39,42 @@ class ClassList extends Component {
       });
   }
 
+  handlePageChange(pageNumber) {
+    console.log(pageNumber);
+    this.setState({
+      activePage: pageNumber
+    })
+  }
+
+  handleTextChange(e) {
+    const filteredClasses = this._filterClasses(this.state.classes);
+
+    this.setState({
+      textValue: e.target.value,
+      filteredClasses
+    });
+  }
+
   renderClasses() {
-    const { classes } = this.state;
-    return classes.map(item =>
+    const { filteredClasses } = this.state;
+    let start = (this.state.activePage - 1) * classesPerPage;
+    let end = start + classesPerPage;
+    const displayClasses = filteredClasses.slice(start,end);
+    return displayClasses.map(item =>
       <ClassListItem key={item.id} item={item} />
     )
+  }
+
+  _filterClasses(classes) {
+    const {textValue} = this.state;
+    console.log(classes);
+    return classes.filter(item => {
+      if (item.title.toLowerCase().indexOf(textValue.toLowerCase()) >= 0) {
+        return true;
+      }
+      return false;
+    });
+
   }
 
   render() {
@@ -45,6 +83,9 @@ class ClassList extends Component {
     return (
       <div>
         <h1>List of Classes</h1>
+        <input type="text"
+          value={this.state.textValue}
+          onChange={this.handleTextChange.bind(this) }/>
         {
           loading
           ?
@@ -54,6 +95,20 @@ class ClassList extends Component {
             {this.renderClasses()}
           </ul>
         }
+        <div styleName="pagination-wrapper">
+          <Pagination
+             innerClass={styles.paginate}
+             itemClass={styles.paginateItem}
+             activeClass={styles.paginateActive}
+             disabledClass={styles.paginateDisabled}
+             hideDisabled={false}
+             activePage={this.state.activePage}
+             itemsCountPerPage={classesPerPage}
+             totalItemsCount={this.state.filteredClasses.length}
+             pageRangeDisplayed={2}
+             onChange={this.handlePageChange.bind(this)}
+         />
+         </div>
       </div>
     );
   }
